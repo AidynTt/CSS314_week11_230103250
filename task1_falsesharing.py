@@ -41,7 +41,7 @@ def test_stride(p, stride, M):
         for process in processes:
             process.join()
             if process.exitcode != 0:
-                raise RuntimeError("Worker failed")
+                raise RuntimeError("Worker faile")
 
     finally:
         shm.close()
@@ -51,10 +51,9 @@ def test_stride(p, stride, M):
 if __name__ == "__main__":
     p = 8
 
-    # Quick test
-    M = 800_000
 
-    # Full lab: M = 24_000_000
+    M = 24_000_000
+
     strides = [1, 2, 4, 8, 16, 32]
 
     with open("phase1_results.csv", "w", newline="") as f:
@@ -89,4 +88,4 @@ if __name__ == "__main__":
                 f"{stats.median_ms:.2f} ms"
             )
 
-    print("All tests completed!")
+
